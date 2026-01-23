@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scaling Compositional Intelligence for Multi-Agent Robotic Systems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 0;
+            padding-bottom: 40px;
+        }
+
+        .logo-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .logo-container:hover {
+            text-decoration: none;
+        }
+
+        .logo-container:hover .logo-text {
+            color: #000;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .logo-text {
+            font-size: 5em;
+            font-weight: 600;
+            color: #000;
+        }
+
+        h1 {
+            color: #000;
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            color: #000;
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #000;
+        }
+
+        h3 {
+            color: #000;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-weight: 400;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .speaker-list, .organizer-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .speaker-list li, .organizer-list li {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 2px solid #000;
+        }
+
+        .schedule-item {
+            margin-bottom: 10px;
+            padding: 8px 0;
+        }
+
+        .schedule-time {
+            color: #000;
+            font-weight: 600;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .person-card {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+
+        .person-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+            font-weight: bold;
+            border: 2px solid #000;
+        }
+
+        .person-name {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .person-institute {
+            font-size: 0.9em;
+            color: #000;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        .person-email {
+            font-size: 0.85em;
+            color: #000;
+            margin-top: 5px;
+        }
+
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .committee-member {
+            padding: 8px;
+            background-color: #fff;
+            border: 1px solid #000;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: 400;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #000;
+        }
+
+        th {
+            font-weight: 600;
+            background-color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .schedule-table {
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .logo-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .logo {
+                max-width: 150px;
+            }
+
+            .logo-text {
+                font-size: 2.5em;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-links {
+                gap: 15px;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .nav-links a {
+                font-size: 0.9em;
+            }
+
+            .people-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 20px;
+            }
+
+            .person-photo {
+                width: 120px;
+                height: 120px;
+                font-size: 2em;
+            }
+        }
+
+        nav {
+            margin: 40px 0;
+            margin-top: 50px;
+            padding: 20px 0;
+            padding-top: 30px;
+            border-bottom: 2px solid #000;
+            border-top: 2px solid #000;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1em;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="https://mars-eai.github.io/MARS-System/" class="logo-container">
+                <img src="logo.png" alt="Workshop Logo" class="logo">
+                <span class="logo-text">MARS-EAI</span>
+            </a>
+            <h1>ICRA 2026 Workshop on Scaling Compositional Intelligence for Multi-Agent Robotic Systems</h1>
+        </header>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#overview">#Overview</a></li>
+                <li><a href="#call-for-papers">#Call For Papers</a></li>
+                <li><a href="#schedule">#Schedule</a></li>
+                <li><a href="#speakers">#Invited Speakers</a></li>
+                <li><a href="#organizers">#Organizers</a></li>
+                <li><a href="#contact">#Contact</a></li>
+            </ul>
+        </nav>
+
+        <section id="overview" class="section" style="margin-top: 40px;">
+            <p>This workshop brings together researchers across robotics, machine learning, and embodied AI to explore how multi-agent collaboration—grounded in physical embodiment and powered by foundation models—can enable scalable, generalizable, and trustworthy intelligence. It will emphasize robot–robot coordination, compositional intelligence, and distributed planning across heterogeneous agents. Through invited talks, paper sessions, and discussions, the workshop seeks to foster a focused community advancing the next generation of collaborative embodied systems.</p>
+
+            <p>The workshop will consist of a combination of invited talks and contributed papers, selected through a rigorous review process. We aim to bring together experts from academia and industry to promote cross-disciplinary collaboration and discussion.</p>
+
+            <p>We also plan to provide financial support for students and junior researchers. The money will be used to provide best paper awards and registration support to minority groups and fund other workshop logistics.</p>
+        </section>
+
+        <section id="call-for-papers" class="section">
+            <h2>Call For Papers</h2>
+            <p>We welcome submissions in the following areas:</p>
+            <ul>
+                <li>Robotic coordination in navigation, manipulation, and assembly using foundation model reasoning.</li>
+                <li>Coordinating diverse embodiments and bridging simulation with real-world deployment.</li>
+                <li>Scalable task decomposition and multi-agent collaboration via logic-driven planning.</li>
+                <li>Hierarchical reasoning, decentralized control, and cerebrum–cerebellum paradigms.</li>
+                <li>Scalable environments and datasets for diverse multi-agent physical interactions.</li>
+                <li>Robustness, trustworthiness, generalization, scalability, and collaboration efficiency.</li>
+                <li>Reinforcement learning, imitation learning approaches for multi-agent coordination.</li>
+                <li>Human–Agent Communication: collaboration protocols, and inter-agent alignment.</li>
+                <li>Use cases in embodied robotics, multi-agent autonomy, open-world exploration, assistive systems, medical robotics, and beyond.</li>
+            </ul>
+        </section>
+        
+        <section id="schedule" class="section">
+            <h2>Schedule</h2>
+            <p><strong>*Sample Schedule*</strong></p>
+            
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>9:00 AM - 9:10 AM</td>
+                        <td>Opening remarks</td>
+                    </tr>
+                    <tr>
+                        <td>9:10 AM - 9:30 AM</td>
+                        <td><strong>Invited talk 1</strong> (20 min)</td>
+                    </tr>
+                    <tr>
+                        <td>9:40 AM - 10:00 AM</td>
+                        <td><strong>Invited talk 2</strong> (20 min)</td>
+                    </tr>
+                    <tr>
+                        <td>10:10 AM - 10:40 AM</td>
+                        <td><strong>Oral presentations 1</strong> (15 min * 2)</td>
+                    </tr>
+                    <tr>
+                        <td>10:45 AM - 11:45 AM</td>
+                        <td>Poster session & coffee socials 1 (1h)</td>
+                    </tr>
+                    <tr>
+                        <td>11:45 AM - 1:00 PM</td>
+                        <td>Lunch break</td>
+                    </tr>
+                    <tr>
+                        <td>1:00 PM - 1:20 PM</td>
+                        <td><strong>Invited talk 3</strong> (20 min)</td>
+                    </tr>
+                    <tr>
+                        <td>1:30 PM - 1:40 PM</td>
+                        <td><strong>Invited talk 4</strong> (20 min)</td>
+                    </tr>
+                    <tr>
+                        <td>1:50 PM - 2:20 PM</td>
+                        <td><strong>Oral presentations 2</strong> (15 min * 2)</td>
+                    </tr>
+                    <tr>
+                        <td>2:25 PM - 3:25 PM</td>
+                        <td>Poster session & coffee socials 2 (1h)</td>
+                    </tr>
+                    <tr>
+                        <td>3:30 PM - 3:50 PM</td>
+                        <td><strong>Invited talk 5</strong> (20 min)</td>
+                    </tr>
+                    <tr>
+                        <td>4:00 PM - 4:20 PM</td>
+                        <td><strong>Invited talk 6</strong> (20 min)</td>
+                    </tr>
+                    <tr>
+                        <td>4:30 PM - 5:00 PM</td>
+                        <td>Panel discussion (30 min)</td>
+                    </tr>
+                    <tr>
+                        <td>5:00 PM - 5:15 PM</td>
+                        <td>Awards and conclusive remarks</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="speakers" class="section">
+            <h2>Invited Speakers</h2>
+            <p>Given the interdisciplinary nature of the topics our workshop aims to cover, we invited 6 keynote speakers with different backgrounds and perspectives on open-world reasoning and decision-making (all confirmed):</p>
+            <div class="people-grid">
+                <div class="person-card">
+                    <div class="person-photo">MP</div>
+                    <div class="person-name">Marco Pavone</div>
+                    <div class="person-institute">Stanford University</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">CF</div>
+                    <div class="person-name">Chelsea Finn</div>
+                    <div class="person-institute">Stanford University</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">EV</div>
+                    <div class="person-name">Eugene Vinitsky</div>
+                    <div class="person-institute">NYU Tandon</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">DS</div>
+                    <div class="person-name">Dhruv Shah</div>
+                    <div class="person-institute">Google DeepMind</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">XL</div>
+                    <div class="person-name">Xu Liu</div>
+                    <div class="person-institute">Stanford University</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">WH</div>
+                    <div class="person-name">Wenlong Huang</div>
+                    <div class="person-institute">Stanford University</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="organizers" class="section">
+            <h2>Organizers</h2>
+            <div class="people-grid">
+                <div class="person-card">
+                    <div class="person-photo">YQ</div>
+                    <div class="person-name">Yiran Qin</div>
+                    <div class="person-institute">The Chinese University of Hong Kong, Shenzhen</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">ZY</div>
+                    <div class="person-name">Zhenfei Yin</div>
+                    <div class="person-institute">Oxford</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">YD</div>
+                    <div class="person-name">Yilun Du</div>
+                    <div class="person-institute">Harvard University</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">JM</div>
+                    <div class="person-name">Jiayuan Mao</div>
+                    <div class="person-institute">Massachusetts Institute of Technology</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">MS</div>
+                    <div class="person-name">Nur Muhammad "Mahi" Shafiullah</div>
+                    <div class="person-institute">New York University</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">FL</div>
+                    <div class="person-name">Fangchen Liu</div>
+                    <div class="person-institute">University of California, Berkeley</div>
+                </div>
+            </div>
+
+            <h3>Advisory Board</h3>
+            <div class="people-grid">
+                <div class="person-card">
+                    <div class="person-photo">JT</div>
+                    <div class="person-name">Josh Tenenbaum</div>
+                    <div class="person-institute">Massachusetts Institute of Technology</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">SL</div>
+                    <div class="person-name">Sergey Levine</div>
+                    <div class="person-institute">University of California, Berkeley</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">PA</div>
+                    <div class="person-name">Pieter Abbeel</div>
+                    <div class="person-institute">University of California, Berkeley</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">MS</div>
+                    <div class="person-name">Mac Schwager</div>
+                    <div class="person-institute">Stanford University</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo">PT</div>
+                    <div class="person-name">Philip H.S. Torr</div>
+                    <div class="person-institute">University of Oxford</div>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <section id="contact" class="section">
+            <h2>Contact Information</h2>
+            <p>For questions and inquiries, please contact the organizing committee through the OpenReview submission system or reach out to the organizers directly using the email addresses provided above.</p>
+        </section>
+    </div>
+</body>
+</html>
+

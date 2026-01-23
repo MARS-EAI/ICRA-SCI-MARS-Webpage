@@ -1,0 +1,274 @@
+Scaling Compositional Intelligence for
+Multi-Agent Robotic Systems
+1 Aim and Scope
+Motivation. The scaling of foundation models (FMs)—such as LLMs [1, 2] and VLMs— [14, 2] has
+enabled generalist agents [7] to operate across diverse modalities. In parallel, collaborative systems
+in human society—spanning individuals, institutions, and infrastructure—demonstrate how scaling
+through coordination can lead to capabilities beyond those of isolated units. This raises an important
+question for embodied AI: Can similar principles of scaling apply to the growth of agent populations
+rather than just model size? Multi-agent systems [1, 4, 15, 5, 11] offer a structured way to explore
+this question. By incorporating increasing numbers of heterogeneous agents—each with distinct
+embodiments and functional roles—multi-agent frameworks [3, 6, 10, 11, 13, 16, 18] can leverage
+the complementary strengths of foundation model-based reasoning and physical interaction. This
+integration has the potential to enhance robustness, task coverage, and decision-making through
+distributed intelligence. In this context, embodiment is not merely a constraint but a critical enabler
+for compositional generalization and system-level scalability. Understanding how such embodied
+collaboration unfolds is essential for advancing toward more general, adaptive, and trustworthy AI
+systems.
+Background. Recent advances show that LLM- and VLM-powered agents can perform high-level
+planning, simulation-based reasoning, and embodied execution. However, they often struggle to
+generalize across diverse robot morphologies, environments, and task structures—especially in
+multi-agent settings involving coordination and physical interaction. To address these challenges,
+key research directions include: Compositional Intelligence, which enables agents to decompose
+complex tasks under logical, spatial, and temporal constraints [8, 9, 12, 17]; Distributed cognitive
+architectures, such as cerebrum–cerebellum-inspired hierarchies, which balance global planning with
+low-level control; and Sim2Real pipelines for heterogeneous agents, supporting policy transfer across
+simulation and reality. Here, embodiment diversity is reframed as an advantage—fostering modular
+coordination and robust, generalizable multi-agent intelligence.
+Our Workshop. This workshop aims to bring together researchers across robotics, machine learning,
+and embodied AI to explore how multi-agent collaboration—grounded in physical embodiment and
+powered by foundation models—can enable scalable, generalizable, and trustworthy intelligence. It
+will emphasize robot–robot coordination, compositional intelligence, and distributed planning across
+heterogeneous agents. Through invited talks, paper sessions, and discussions, the workshop seeks
+to foster a focused community advancing the next generation of collaborative embodied systems.
+Topics of interest include (but are not limited to):
+• Robotic coordination in navigation, manipulation, and assembly using foundation model reasoning.
+• Coordinating diverse embodiments and bridging simulation with real-world deployment.
+• Scalable task decomposition and multi-agent collaboration via logic-driven planning.
+• Hierarchical reasoning, decentralized control, and cerebrum–cerebellum paradigms.
+• Scalable environments and datasets for diverse multi-agent physical interactions.
+• Robustness, trustworthiness, generalization, scalability, and collaboration efficiency.
+• Reinforcement learning, imitation learning approaches for multi-agent coordination.
+• Human–Agent Communication: collaboration protocols, and inter-agent alignment.
+• Use cases in embodied robotics, multi-agent autonomy, open-world exploration, assistive systems,
+medical robotics, and beyond.
+2 Logistics
+The workshop will consist of a combination of invited talks and contributed papers, selected through
+a rigorous review process. We aim to bring together experts from academia and industry to promote
+cross-disciplinary collaboration and discussion.
+Invited speakers. Given the interdisciplinary nature of the topics our workshop aims to cover, we
+invited 6 keynote speakers with different backgrounds and perspectives on open-world reasoning and
+decision-making (all confirmed, website page in colored hyperlink):
+• Marco Pavone is an Associate Professor of Aeronautics and Astronautics at Stanford University,
+with research interests in autonomous systems, robotics, and optimal control, particularly for space
+and mobility applications.
+• Chelsea Finn is an Assistant Professor of Computer Science and Electrical Engineering at Stanford University, with research focused on robotics, meta-learning, and generalization in embodied
+intelligence.
+• Eugene Vinitsky is an Assistant Professor at NYU Tandon based in Civil Engineering with a
+PhD in control from UC Berkeley with Alexandre Bayen. His research goal is to see complex,
+human-like behavior emerge from unsupervised interaction between groups of learning agents with
+an applications focus on robotics and transportation.
+• Dhruv Shah is a Senior Research Scientist at Google DeepMind, working foundation models of
+and for robotics. He obtained his PhD in EECS at UC Berkeley, where he was advised by Sergey
+Levine.
+• Xu Liu is currently a postdoctoral researcher in the Department of Aeronautics and Astronautics at
+Stanford University. He earned his Ph.D. and M.S.E. degrees at the GRASP Lab at the University of
+Pennsylvania.
+• Wenlong Huang is a third-year Ph.D. student in Computer Science at Stanford, advised by Fei-Fei
+Li. The goal of his research is to endow robots with broad generalization capabilities for open-world
+manipulation tasks, especially in household environments.
+Contributed talk. 4 top accepted submissions (each 15 min).
+Structured discussions. We have two poster sessions along with casual coffee socials (1h each), and
+one panel with participants selected from invited speakers and contributed talk presenters (30 min).
+Attendance. Based on the situation of previous workshops with similar topics, we estimate that there
+will be 100-200 attendees.
+Financial support. We are in the process of finalizing the details of financial support from kaggle.
+The money will be used to provide best paper awards and registration support to minority groups and
+fund other workshop logistics.
+Virtual participation. We will launch a public Slack workspace for our workshop to share materials
+and facilitate Q&A. All speakers, authors, and organizers will be invited, and participants can freely
+message each other or create breakout rooms for discussion. During poster sessions, presenters
+are encouraged to monitor Slack, respond to questions, and optionally host virtual meetings. The
+organizing team will help relay questions and support both in-person and virtual interactions.
+3 Tentative Schedule
+We anticipate a full-day workshop with the following tentative schedule. Our principles are: 1)Balancing between invited talks (mostly senior researchers with established topics) and spotlight/poster
+presentations/discussions (likely new insights and advances); 2) Reasonable time allocation (e.g.,
+avoiding lunchtime) to foster poster engagements, coffee chats/socials; 3) Make full use of the
+available time slots as possible.
+2
+• 9:00 AM to 9:10 AM: Opening remarks • 1:30 PM to 1:40 PM: Invited talk 4 (20 min)
+• 9:10 AM to 9:30 AM: Invited talk 1 (20 min) • 1:50 PM to 2:20 PM: Oral presentations 2 (15 min * 2)
+• 9:40 AM to 10:00 AM: Invited talk 2 (20 min) • 2:25 PM to 3:25 PM: Poster session & coffee socials 2 (1h)
+• 10:10 AM to 10:40 AM: Oral presentations 1 (15 min * 2) • 3:30 PM to 3:50 PM: Invited talk 5 (20 min)
+• 10:45 AM to 11:45 AM: Poster session & coffee socials 1 (1h) • 4:00 PM to 4:20 PM: Invited talk 6 (20 min)
+• 11:45 AM to 1:00 PM: Lunch break • 4:30 PM to 5:00 PM: Panel discussion (30 min)
+• 1:00 PM to 1:20 PM: Invited talk 3 (20 min) • 5:00 PM to 5:15 PM: Awards and conclusive remarks
+To encourage more in-depth and structured discussions among workshop contributions (likely bringing more fresh ideas and insights) and attendees, we managed to allocate a total of 3.3h for structured
+discussions (orals, posters, coffee socials, panels), roughly 50% of the program (lunch break excluded). Please note that the schedule is still tentative and we’re more than happy to loop in any
+feedback from the reviewers of this proposal.
+4 Other Information
+Our workshop is in person. We will increase the accessibility of the workshop through:
+• Website and Accepted Papers. We will use OpenReview for the review process. Accepted papers
+will be released on our website before the workshop and will be maintained afterward. This will
+increase the exposure of the workshop and encourage those interested to attend the workshop and
+communicate with the authors during the workshop.
+• Slides and Recordings. With permission from the speakers, we will gather slides for all talks,
+record the videos of the talks, and release related materials on the website after the workshop.
+• Travel Awards. We will provide free workshop registrations for selected travel award applicants,
+where priority will be given to students and minority groups.
+• General Audience. To further extend the accessibility of our workshop to the general audience,
+we will use social media (incl. X, Facebook, LinkedIn, Mastodon) and blog posts to advertise and
+engage with the general audience of the workshop.
+Diversity. The organizing team consists of researchers with a wide variety of demographic backgrounds and experiences, to promote diversity along several axes (gender, seniority, organizational
+experience, and affiliation). The organizers’ primary affiliations span 6 institutions from 3 continents
+(East Asia, North America, and Europe), and comprise Ph.D. students, non-profit researchers, industry
+scientists, and professors. We similarly attempted to promote diversity in the invited speakers, with 3
+professors, 1 Ph.D. student, 1 postdoctoral researcher 2 industry researchers. 33% of our organizers
+are from underrepresented groups (Female, Latino) in machine learning and AI.
+History. Recent years have witnessed growing interest in multi-agent embodied intelligence, with
+several related workshops emerging at top venues. The MEIS workshop series (CVPR 2024, 2025)
+explored collaborative intelligence with a focus on V2V/V2I communication and drone swarms. The
+Embodied AI workshop at CVPR 2025 centered on open-world generalization in single-agent settings
+using LLMs. The MAEIS workshop at ICRA 2025 emphasized learning pipelines for robust multiagent systems, while the FMDM workshop at NeurIPS 2023 focused on modular, language-driven
+agents for manipulation tasks. In contrast, our workshop aims to advance multi-agent collaboration
+across heterogeneous embodied agents, emphasizing physical grounding, distributed reasoning, and
+scalable coordination in dynamic environments. By uniting researchers from robotics, embodied AI,
+and foundation models, we seek to push the frontier of open-world collaborative intelligence.
+Conflict of interest. The organizing team will address conflicts of interest during review by leveraging
+OpenReview’s avoidance system, instructing committee members to keep assignments confidential
+and report concerns, and reassigning reviews if needed to maintain review integrity.
+Fostering broad discussions. We will host a public Slack with safe discussion channels and dedicate
+about 50% of the program to interactive sessions. Questions from onsite and online participants will
+be gathered, with presenters encouraged to respond via Slack during poster sessions.
+Engaging virtual participation. We are committed to inclusive participation by supporting remote
+attendees. A public Slack workspace will be used for Q&A across both onsite and virtual participants.
+All materials (papers, slides, posters, photos) will be shared online. We will offer incentives such as
+digital badges and session shout-outs to encourage engagement, and coordinate with technical staff
+to ensure accessibility and address any virtual issues.
+3
+5 Organizing Team
+Organizers.(website page and email address in colored hyperlink)
+• Yiran Qin (yiranqin@link.cuhk.edu.cn) Ph.D. student, The Chinese University of Hong Kong,
+Shenzhen. Yiran Qin is a fourth-year Ph.D. student at The Chinese University of Hong Kong,
+Shenzhen. His research is to advance multi-embodied agents from digital collaboratio to physical
+integration. By focusing on cross-level coordination, compositional constraint modeling, and humanmachine hybrid intelligence, he aims to establish the foundation of collective intelligence in the
+physical world. He has organized the challage of workshop on Multi-modal Foundation Model meets
+Embodied AI at ICML 2024.
+• Zhenfei Yin (jeremyyin@robots.ox.ac.uk) visiting researcher and incoming postdoc at Oxford.
+His primary research interests include multimodal learning, AI agents, multi-agent systems, and
+embodied agents. He has organized the workshop on Trustworthy Multimodal Foundation Models
+and AI Agents (TiFA) at ICML 2024; the workshop on Multi-modal Foundation Model meets
+Embodied AI at ICML 2024; the workshop on Multi-Agent Systems in the Era of Foundation Models:
+Opportunities, Challenges and Futures at ICML 2025; the workshop on Multi-Modal Reasoning
+for Agentic Intelligence at ICCV 2025; the workshop on Reliable and Interactable World Models:
+Geometry, Physics, Interactivity, and Real-World Generalization at ICCV 2025. He has also organized
+the workshop challenge on Sensing, Understanding, and Synthesizing Humans at ECCV 2020.
+• Yilun Du (ydu@seas.harvard.edu) Assistant Professor, Harvar University. Yilun Du is currently an
+Assistant Professor at Harvard University in the Kempner Institute and the Department of Computer
+Science. He received his Ph.D. from MIT EECS, advised by Professors Leslie Kaelbling, Tomas
+Lozano-Perez, and Joshua B. Tenenbaum. He also completed his undergraduate studies at MIT,
+and has held positions as a research fellow at OpenAI, and as an intern and visiting researcher at
+FAIR and Google DeepMind. He is a gold medalist in the International Biology Olympiad. His
+research focuses on generative models, decision making, robot learning, embodied agents, and their
+applications to scientific domains.
+• Jiayuan Mao (jiayuanm@mit.edu) Ph.D. student, Massachusetts Institute of Technology. Jiayuan
+Mao is a Ph.D. student at MIT, advised by Professors Josh Tenenbaum and Leslie Kaelbling. Her
+research agenda is to build machines that can continually learn concepts (e.g., properties, relations,
+rules, and skills) from their experiences and apply them for reasoning and planning in the physical
+world. Her research topics include visual reasoning, robotic manipulation, scene and activity understanding, and language acquisition. She was named a Rising Star in EECS (2024) and in Generative
+AI (2024). Her research has received Best Paper Awards at CogSci 2024, SoCal NLP 2024, and the
+CoRL 2024 Workshop on Language and Robot Learning, as well as a Best Paper nomination at ACL
+2019. She has co-organized workshops and tutorials at ICML 2025, RLC 2025, ICRA 2025, CVPR
+2025 and 2020, NAACL 2025 and 2021, AAAI 2025, CoRL 2024, and ECCV 2024.
+• Nur Muhammad “Mahi” Shafiullah (mahi@cs.nyu.edu) Ph.D. student, New York University.
+He is currently a final-year Ph.D. candidate in Computer Science at NYU Courant, advised by
+Professor Lerrel Pinto. His research focuses on building generally intelligent robots that function
+reliably across diverse environments with minimal setup. At the intersection of machine learning and
+robotics, his work investigates the representation, data, and memory structures necessary for enabling
+robots—particularly home robots—to learn everyday tasks from both human demonstrations and
+autonomous experience.
+• Fangchen Liu (fangchenliu@berkeley.edu) Ph.D. student, University of California, Berkeley.
+Fangchen Liu is a final-year Ph.D. student at UC Berkeley, advised by Prof. Pieter Abbeel. Her
+research focuses on developing generalizable and data-efficient approaches for embodied agents and
+robotics, including few-shot imitation learning, sim-to-real transfer and adaptation, and learning from
+human videos. She has co-organized the CoRL 2023 Workshop on Towards Reliable and Deployable
+Learning-based Robotic Systems.
+Advisory Board.(website page and email address in colored hyperlink)
+• Josh Tenenbaum (jbt@mit.edu) Associate Professor, Massachusetts Institute of Technology. Joshua
+Tenenbaum received a BS (1993) from Yale University and a PhD (1999) from the Massachusetts
+Institute of Technology. He taught at Stanford University beginning in 1999 before returning to
+MIT in 2002. Tenenbaum currently serves as a professor in the Department of Brain and Cognitive
+4
+Sciences at MIT, as a principal investigator in the Computer Science and Artificial Intelligence Lab
+(CSAIL), and as a research leader in MIT’s Center for Brains, Minds, and Machines. His articles
+have been published in Science, Trends in Cognitive Sciences, Psychological Review, PNAS, and
+Behavioral and Brain Sciences, among other journals.
+• Sergey Levine (svlevine@eecs.berkeley.edu) Associate Professor, University of California, Berkeley. Sergey Levine is an Associate Professor of Electrical Engineering and Computer Sciences at
+UC Berkeley, specializing in robotics, deep reinforcement learning, and decision-making under
+uncertainty.
+• Pieter Abbeel (pabbeel@cs.berkeley.edu) Professor, University of California, Berkeley. Pieter
+Abbeel obtained his Ph.D. from the EECS Department at Stanford University. He is now Professor
+and Director of the Robot Learning Lab at UC Berkeley and Co-Director of the Berkeley AI Research
+(BAIR) Lab. His work focuses on machine learning and robotics, including apprenticeship learning,
+reinforcement learning, and skill acquisition through meta-learning.
+• Mac Schwager (schwager@stanford.edu) Associate Professor, Stanford University. Professor Mac
+Schwager is an Associate Professor in the Department of Aeronautics and Astronautics at Stanford
+University. He received his BS from Stanford in 2000, MS from MIT in 2005, and PhD from MIT in
+2009. From 2009 to 2012, he was a postdoctoral researcher jointly at the University of Pennsylvania
+and MIT. He then served as an Assistant Professor at Boston University from 2012 to 2015 before
+joining Stanford Aero-Astro in 2015. His research focuses on distributed algorithms for coordination,
+estimation, and learning in groups of robots and animals.
+• Philip H.S. Torr (philip.torr@eng.ox.ac.uk) Professor, University of Oxford. Professor Philip Torr
+did his PhD (DPhil) at the Robotics Research Group of the University of Oxford under Professor
+David Murray of the Active Vision Group. Recently in 2013, Philip returned to Oxford as full
+professor.
+Program committee members. Based on the observations of past workshops with similar scope, we
+estimate approximately 30 submissions. Setting the expected number of reviews per submission to 3,
+and limiting the maximum number of reviews assigned to each reviewer to fewer than 3, yields a
+requirement of 30 × 3/3 = 30 program committee members. All program committee members have
+confirmed their availability.
+• Enshen Zhou • Zhelun Shi • Li Kang • Xiufeng Song • Shunlin Lu
+• Heng Zhou • Zaibin Zhang • Xuan Yu • Jiahua Ma • Ziye Wang
+• Xiaoya Lu • Zeren Chen • Yanhao Jia • Songtao Huang • Yutao Fan
+• Rui Li • Zixuan Hu • Changbin Zhang • Yinghong Liao • Yixiong Li
+• Chao Zhan • Zhihao Yuan • Zhenyang ni • Yuheng Ji • Qinghe Wang
+• Ruobing Han • Jie Yang • Chaoqun Wang • Yongting Zhang • Yunhao Luo
+References
+[1] Saaket Agashe, Yue Fan, Anthony Reyna, and Xin Eric Wang. Llm-coordination: evaluating and analyzing
+multi-agent coordination abilities in large language models. arXiv preprint arXiv:2310.03903, 2023.
+[2] Shuai Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Sibo Song, Kai Dang, Peng Wang, Shijie
+Wang, Jun Tang, et al. Qwen2. 5-vl technical report. arXiv preprint arXiv:2502.13923, 2025.
+[3] Xiaohe Bo, Zeyu Zhang, Quanyu Dai, Xueyang Feng, Lei Wang, Rui Li, Xu Chen, and Ji-Rong Wen.
+Reflective multi-agent collaboration based on large language models. Advances in Neural Information
+Processing Systems, 37:138595–138631, 2024.
+[4] Micah Carroll, Rohin Shah, Mark K Ho, Tom Griffiths, Sanjit Seshia, Pieter Abbeel, and Anca Dragan. On
+the utility of learning about humans for human-ai coordination. Advances in neural information processing
+systems, 32, 2019.
+[5] Matthew Chang, Gunjan Chhablani, Alexander Clegg, Mikael Dallaire Cote, Ruta Desai, Michal Hlavac,
+Vladimir Karashchuk, Jacob Krantz, Roozbeh Mottaghi, Priyam Parashar, et al. Partnr: A benchmark for
+planning and reasoning in embodied multi-agent tasks. arXiv preprint arXiv:2411.00081, 2024.
+[6] Xudong Guo, Kaixuan Huang, Jiale Liu, Wenhui Fan, Natalia Vélez, Qingyun Wu, Huazheng Wang,
+Thomas L Griffiths, and Mengdi Wang. Embodied llm agents learn to cooperate in organized teams. arXiv
+preprint arXiv:2403.12482, 2024.
+5
+[7] Wenlong Huang, Pieter Abbeel, Deepak Pathak, and Igor Mordatch. Language models as zero-shot
+planners: Extracting actionable knowledge for embodied agents. In International conference on machine
+learning, pages 9118–9147. PMLR, 2022.
+[8] Wenlong Huang, Chen Wang, Yunzhu Li, Ruohan Zhang, and Li Fei-Fei. Rekep: Spatio-temporal reasoning
+of relational keypoint constraints for robotic manipulation. arXiv preprint arXiv:2409.01652, 2024.
+[9] Wenlong Huang, Chen Wang, Ruohan Zhang, Yunzhu Li, Jiajun Wu, and Li Fei-Fei. Voxposer: Composable
+3d value maps for robotic manipulation with language models. arXiv preprint arXiv:2307.05973, 2023.
+[10] Shyam Sundar Kannan, Vishnunandan LN Venkatesh, and Byung-Cheol Min. Smart-llm: Smart multiagent robot task planning using large language models. In 2024 IEEE/RSJ International Conference on
+Intelligent Robots and Systems (IROS), pages 12140–12147. IEEE, 2024.
+[11] Soroush Nasiriany, Abhiram Maddukuri, Lance Zhang, Adeet Parikh, Aaron Lo, Abhishek Joshi, Ajay
+Mandlekar, and Yuke Zhu. Robocasa: Large-scale simulation of everyday tasks for generalist robots. arXiv
+preprint arXiv:2406.02523, 2024.
+[12] Yiran Qin, Li Kang, Xiufeng Song, Zhenfei Yin, Xiaohong Liu, Xihui Liu, Ruimao Zhang, and Lei Bai.
+Robofactory: Exploring embodied agent collaboration with compositional constraints. arXiv preprint
+arXiv:2503.16408, 2025.
+[13] Timo Schick, Jane Dwivedi-Yu, Roberto Dessì, Roberta Raileanu, Maria Lomeli, Eric Hambro, Luke
+Zettlemoyer, Nicola Cancedda, and Thomas Scialom. Toolformer: Language models can teach themselves
+to use tools. Advances in Neural Information Processing Systems, 36:68539–68551, 2023.
+[14] Guowei Xu, Peng Jin, Li Hao, Yibing Song, Lichao Sun, and Li Yuan. Llava-cot: Let vision language
+models reason step-by-step, 2024. URL https://arxiv. org/abs/2411.10440.
+[15] Hongxin Zhang, Weihua Du, Jiaming Shan, Qinhong Zhou, Yilun Du, Joshua B Tenenbaum, Tianmin Shu,
+and Chuang Gan. Building cooperative embodied agents modularly with large language models. arXiv
+preprint arXiv:2307.02485, 2023.
+[16] Zirui Zhao, Wee Sun Lee, and David Hsu. Large language models as commonsense knowledge for
+large-scale task planning. Advances in Neural Information Processing Systems, 36:31967–31987, 2023.
+[17] Enshen Zhou, Qi Su, Cheng Chi, Zhizheng Zhang, Zhongyuan Wang, Tiejun Huang, Lu Sheng, and
+He Wang. Code-as-monitor: Constraint-aware visual programming for reactive and proactive robotic
+failure detection. arXiv preprint arXiv:2412.04455, 2024.
+[18] Xuhui Zhou, Hao Zhu, Leena Mathur, Ruohong Zhang, Haofei Yu, Zhengyang Qi, Louis-Philippe Morency,
+Yonatan Bisk, Daniel Fried, Graham Neubig, et al. Sotopia: Interactive evaluation for social intelligence in
+language agents. arXiv preprint arXiv:2310.11667, 2023
