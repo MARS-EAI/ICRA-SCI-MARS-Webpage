@@ -3,217 +3,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scaling Compositional Intelligence for Multi-Agent Robotic Systems</title>
+    <title>Multi-Agent Robotic Systems: Real-World Collaboration and Interaction</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --bg-accent: #eef1f5;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a5568;
+            --text-muted: #718096;
+            --accent-steel: #5c6bc0;
+            --accent-copper: #b87333;
+            --accent-silver: #94a3b8;
+            --border-light: #e2e8f0;
+            --border-medium: #cbd5e1;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #000;
-            background-color: #ffffff;
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        /* Subtle geometric pattern background */
+        .pattern-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(92, 107, 192, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(184, 115, 51, 0.03) 0%, transparent 50%);
         }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
+            position: relative;
+            z-index: 10;
         }
 
+        /* Header */
         header {
             text-align: center;
             margin-bottom: 0;
-            padding: 40px 30px;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('bg-photo.png');
+            padding: 60px 40px;
+            background-image: 
+                linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,249,250,0.95) 100%),
+                url('bg-photo.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            border-radius: 12px;
+            border-radius: 16px;
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
-            padding-bottom: 60px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Geometric accent lines */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-steel), var(--accent-copper), var(--accent-steel));
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--border-light);
+            border-radius: 50%;
+            opacity: 0.5;
         }
 
         .logo-container {
             display: inline-flex;
             align-items: center;
-            gap: 15px;
+            gap: 18px;
             margin-bottom: 30px;
             text-decoration: none;
-            color: #000;
+            transition: transform 0.3s ease;
         }
 
         .logo-container:hover {
-            text-decoration: none;
-        }
-
-        .logo-container:hover .logo-text {
-            color: #fff;
+            transform: translateY(-2px);
         }
 
         .logo {
-            max-width: 200px;
+            max-width: 180px;
             height: auto;
         }
 
         .logo-text {
-            font-size: 5em;
-            font-weight: 600;
-            color: #fff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 2px;
         }
 
         h1 {
-            color: #fff;
-            font-size: 2.5em;
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: var(--text-primary);
+            font-size: 2em;
             font-weight: 600;
             margin-bottom: 10px;
-            line-height: 1.2;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        .event-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--bg-accent);
+            border-radius: 30px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+        }
+
+        .event-info::before {
+            content: '◆';
+            color: var(--accent-copper);
         }
 
         h2 {
-            color: #000;
-            font-size: 1.8em;
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: var(--text-primary);
+            font-size: 1.6em;
             font-weight: 600;
             margin-top: 50px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #000;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-light);
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--accent-steel), var(--accent-copper));
+            border-radius: 2px;
         }
 
         h3 {
-            color: #000;
-            font-size: 1.3em;
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: var(--text-secondary);
+            font-size: 1.2em;
             font-weight: 600;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3::before {
+            content: '—';
+            color: var(--accent-copper);
         }
 
         p {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             text-align: justify;
             font-weight: 400;
+            font-size: 1.05em;
+            color: var(--text-secondary);
         }
 
         ul {
-            margin-left: 30px;
-            margin-bottom: 20px;
+            margin-left: 0;
+            margin-bottom: 25px;
+            list-style: none;
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: 400;
+            font-size: 1em;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-secondary);
+            transition: color 0.2s ease;
         }
 
-        .speaker-list, .organizer-list {
-            list-style: none;
-            margin-left: 0;
+        li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: transparent;
+            border: 2px solid var(--accent-steel);
+            border-radius: 2px;
+            transform: rotate(45deg);
+            transition: all 0.2s ease;
         }
 
-        .speaker-list li, .organizer-list li {
-            margin-bottom: 20px;
-            padding-left: 20px;
-            border-left: 2px solid #000;
+        li:hover {
+            color: var(--text-primary);
         }
 
-        .schedule-item {
-            margin-bottom: 10px;
-            padding: 8px 0;
+        li:hover::before {
+            background: var(--accent-steel);
         }
 
-        .schedule-time {
-            color: #000;
-            font-weight: 600;
-        }
-
-        a {
-            color: #000;
-            text-decoration: none;
-            font-weight: 400;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
+        /* Section Cards */
         .section {
-            margin-bottom: 50px;
+            margin-bottom: 30px;
+            padding: 35px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
         }
 
+        .section:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-medium);
+        }
 
+        /* Navigation */
+        nav {
+            margin: 30px 0;
+            padding: 18px 30px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+        .nav-links li::before {
+            display: none;
+        }
+
+        .nav-links a {
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9em;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-steel);
+            background: var(--bg-accent);
+        }
+
+        /* People Grid */
         .people-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
             margin-bottom: 30px;
         }
 
         .person-card {
             text-align: center;
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            border: 1px solid #ddd;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 25px 18px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            position: relative;
         }
 
+        .person-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-steel), var(--accent-copper));
+            border-radius: 0 0 3px 3px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .person-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-medium);
+        }
+
+        .person-card:hover::before {
+            opacity: 1;
+        }
 
         .person-photo {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             margin: 0 auto 15px;
-            background: #000;
+            background: linear-gradient(135deg, var(--accent-steel), var(--accent-silver));
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 3em;
-            font-weight: bold;
-            border: 2px solid #000;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.6em;
+            font-weight: 600;
+            border: 3px solid var(--bg-secondary);
+            box-shadow: 0 4px 15px rgba(92, 107, 192, 0.2);
+            object-fit: cover;
+            overflow: hidden;
+        }
+
+        .person-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         .person-name {
+            font-family: 'IBM Plex Sans', sans-serif;
             font-weight: 600;
-            font-size: 1.1em;
-            color: #000;
+            font-size: 1em;
+            color: var(--text-primary);
             margin-bottom: 8px;
         }
 
         .person-institute {
-            font-size: 0.9em;
-            color: #000;
+            font-size: 0.85em;
+            color: var(--text-muted);
             line-height: 1.4;
             font-weight: 400;
         }
 
-        .person-email {
-            font-size: 0.85em;
-            color: #000;
-            margin-top: 5px;
-        }
-
-        .committee-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .committee-member {
-            padding: 8px;
-            background-color: #fff;
-            border: 1px solid #000;
-            border-radius: 4px;
-            text-align: center;
-            font-size: 0.9em;
-            font-weight: 400;
-        }
-
+        /* Schedule Table */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -221,144 +406,216 @@
         }
 
         th, td {
-            padding: 12px;
+            padding: 16px 18px;
             text-align: left;
-            border-bottom: 1px solid #000;
+            border-bottom: 1px solid var(--border-light);
         }
 
         th {
+            font-family: 'IBM Plex Sans', sans-serif;
             font-weight: 600;
-            background-color: #fff;
+            background: var(--bg-accent);
+            color: var(--text-primary);
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
         }
 
-        tr:hover {
-            background-color: #f9f9f9;
+        th:first-child {
+            border-radius: 8px 0 0 0;
         }
 
-        .schedule-table {
-            margin: 20px 0;
+        th:last-child {
+            border-radius: 0 8px 0 0;
         }
 
+        tr {
+            transition: background 0.2s ease;
+        }
 
+        tbody tr:hover {
+            background: var(--bg-accent);
+        }
+
+        td:first-child {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--accent-steel);
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent-steel);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-copper);
+        }
+
+        /* Footer decoration */
+        .footer-decoration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 40px 0;
+            color: var(--text-muted);
+            font-size: 0.85em;
+        }
+
+        .footer-decoration::before,
+        .footer-decoration::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: var(--border-light);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .logo-container {
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
             }
 
             .logo {
-                max-width: 150px;
+                max-width: 140px;
             }
 
             .logo-text {
-                font-size: 2.5em;
+                font-size: 2.2em;
             }
 
             h1 {
-                font-size: 1.8em;
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.3em;
             }
 
             .nav-links {
-                gap: 15px;
-                max-width: 600px;
-                margin: 0 auto;
+                gap: 5px;
             }
 
             .nav-links a {
-                font-size: 0.9em;
+                font-size: 0.8em;
+                padding: 6px 12px;
             }
 
             .people-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 20px;
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 15px;
             }
 
             .person-photo {
-                width: 120px;
-                height: 120px;
-                font-size: 2em;
+                width: 80px;
+                height: 80px;
+                font-size: 1.3em;
+            }
+
+            .section {
+                padding: 25px 20px;
+            }
+
+            header {
+                padding: 40px 25px;
             }
         }
 
-        nav {
-            margin: 40px 0;
-            margin-top: 50px;
-            padding: 20px 0;
-            padding-top: 30px;
-            border-bottom: 2px solid #000;
-            border-top: 2px solid #000;
+        /* Minimal scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
 
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
         }
 
-        .nav-links a {
-            color: #000;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1em;
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-medium);
+            border-radius: 4px;
         }
 
-        .nav-links a:hover {
-            text-decoration: underline;
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-silver);
+        }
+
+        /* Robot-inspired geometric accents */
+        .geo-accent {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .section::after {
+            content: '';
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            border-right: 2px solid var(--accent-steel);
+            border-bottom: 2px solid var(--accent-steel);
+            opacity: 0.2;
         }
     </style>
 </head>
 <body>
+    <div class="pattern-bg"></div>
+
     <div class="container">
         <header>
             <a href="https://mars-eai.github.io/MARS-System/" class="logo-container">
                 <img src="logo.png" alt="Workshop Logo" class="logo">
                 <span class="logo-text">MARS-EAI</span>
             </a>
-            <h1>ICRA 2026 Workshop on Scaling Compositional Intelligence for Multi-Agent Robotic Systems</h1>
+            <h1>ICRA 2026 Workshop on Multi-Agent Robotic Systems: <br> Real-World Collaboration and Interaction</h1>
+            <div class="event-info">ICRA 2026 Workshop</div>
         </header>
 
         <nav>
             <ul class="nav-links">
-                <li><a href="#overview">#Overview</a></li>
-                <li><a href="#call-for-papers">#Call For Papers</a></li>
-                <li><a href="#schedule">#Schedule</a></li>
-                <li><a href="#speakers">#Invited Speakers</a></li>
-                <li><a href="#organizers">#Organizers</a></li>
-                <li><a href="#contact">#Contact</a></li>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#call-for-papers">Call For Papers</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#speakers">Invited Speakers</a></li>
+                <li><a href="#organizers">Organizers</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
 
-        <section id="overview" class="section" style="margin-top: 40px;">
-            <p>This workshop brings together researchers across robotics, machine learning, and embodied AI to explore how multi-agent collaboration—grounded in physical embodiment and powered by foundation models—can enable scalable, generalizable, and trustworthy intelligence. It will emphasize robot–robot coordination, compositional intelligence, and distributed planning across heterogeneous agents. Through invited talks, paper sessions, and discussions, the workshop seeks to foster a focused community advancing the next generation of collaborative embodied systems.</p>
+        <section id="overview" class="section" style="margin-top: 30px;">
+            <h2>Overview</h2>
+            <p>This workshop brings together researchers across robotics, machine learning, and embodied AI to explore how multi-agent robotic systems can achieve seamless collaboration and interaction in real-world environments. We focus on the critical challenges of deploying multi-robot teams in unstructured, dynamic settings—from warehouses and construction sites to households and healthcare facilities—where robots must coordinate with each other and collaborate naturally with humans.</p>
 
-            <p>The workshop will consist of a combination of invited talks and contributed papers, selected through a rigorous review process. We aim to bring together experts from academia and industry to promote cross-disciplinary collaboration and discussion.</p>
+            <p>Key themes include robot-robot coordination for complex physical tasks, human-robot teaming and intuitive interaction interfaces, robust perception and communication in real-world conditions, and safe deployment strategies for multi-agent systems operating alongside humans. Through invited talks, paper sessions, and hands-on discussions, we aim to bridge the gap between simulation-based research and practical deployment of collaborative robotic systems.</p>
 
-            <p>We also plan to provide financial support for students and junior researchers. The money will be used to provide best paper awards and registration support to minority groups and fund other workshop logistics.</p>
+            <p>The workshop will consist of a combination of invited talks and contributed papers, selected through a rigorous review process. We aim to bring together experts from academia and industry to promote cross-disciplinary collaboration. We also plan to provide best paper awards and registration support for students and junior researchers.</p>
         </section>
 
         <section id="call-for-papers" class="section">
             <h2>Call For Papers</h2>
             <p>We welcome submissions in the following areas:</p>
             <ul>
-                <li>Robotic coordination in navigation, manipulation, and assembly using foundation model reasoning.</li>
-                <li>Coordinating diverse embodiments and bridging simulation with real-world deployment.</li>
-                <li>Scalable task decomposition and multi-agent collaboration via logic-driven planning.</li>
-                <li>Hierarchical reasoning, decentralized control, and cerebrum–cerebellum paradigms.</li>
-                <li>Scalable environments and datasets for diverse multi-agent physical interactions.</li>
-                <li>Robustness, trustworthiness, generalization, scalability, and collaboration efficiency.</li>
-                <li>Reinforcement learning, imitation learning approaches for multi-agent coordination.</li>
-                <li>Human–Agent Communication: collaboration protocols, and inter-agent alignment.</li>
-                <li>Use cases in embodied robotics, multi-agent autonomy, open-world exploration, assistive systems, medical robotics, and beyond.</li>
+                <li>Multi-robot coordination for real-world tasks: navigation, manipulation, assembly, and logistics.</li>
+                <li>Human-robot collaboration: intuitive interfaces, shared autonomy, and natural interaction.</li>
+                <li>Sim-to-real transfer and robust deployment of multi-agent systems in unstructured environments.</li>
+                <li>Communication and coordination protocols for heterogeneous robot teams.</li>
+                <li>Safety, trust, and transparency in human-multi-robot interaction scenarios.</li>
+                <li>Learning-based approaches (RL, imitation learning) for real-world multi-agent coordination.</li>
+                <li>Perception, mapping, and situational awareness for collaborative robot teams.</li>
+                <li>Real-world benchmarks, datasets, and evaluation metrics for multi-agent robotic systems.</li>
+                <li>Applications in warehousing, healthcare, construction, agriculture, search and rescue, and domestic assistance.</li>
             </ul>
         </section>
         
         <section id="schedule" class="section">
             <h2>Schedule</h2>
-            <p><strong>*Sample Schedule*</strong></p>
+            <p><strong>Sample Schedule</strong></p>
             
             <table class="schedule-table">
                 <thead>
@@ -369,59 +626,59 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>9:00 AM - 9:10 AM</td>
+                        <td>09:00 – 09:10</td>
                         <td>Opening remarks</td>
                     </tr>
                     <tr>
-                        <td>9:10 AM - 9:30 AM</td>
+                        <td>09:10 – 09:30</td>
                         <td><strong>Invited talk 1</strong> (20 min)</td>
                     </tr>
                     <tr>
-                        <td>9:40 AM - 10:00 AM</td>
+                        <td>09:40 – 10:00</td>
                         <td><strong>Invited talk 2</strong> (20 min)</td>
                     </tr>
                     <tr>
-                        <td>10:10 AM - 10:40 AM</td>
-                        <td><strong>Oral presentations 1</strong> (15 min * 2)</td>
+                        <td>10:10 – 10:40</td>
+                        <td><strong>Oral presentations 1</strong> (15 min × 2)</td>
                     </tr>
                     <tr>
-                        <td>10:45 AM - 11:45 AM</td>
+                        <td>10:45 – 11:45</td>
                         <td>Poster session & coffee socials 1 (1h)</td>
                     </tr>
                     <tr>
-                        <td>11:45 AM - 1:00 PM</td>
+                        <td>11:45 – 13:00</td>
                         <td>Lunch break</td>
                     </tr>
                     <tr>
-                        <td>1:00 PM - 1:20 PM</td>
+                        <td>13:00 – 13:20</td>
                         <td><strong>Invited talk 3</strong> (20 min)</td>
                     </tr>
                     <tr>
-                        <td>1:30 PM - 1:40 PM</td>
+                        <td>13:30 – 13:50</td>
                         <td><strong>Invited talk 4</strong> (20 min)</td>
                     </tr>
                     <tr>
-                        <td>1:50 PM - 2:20 PM</td>
-                        <td><strong>Oral presentations 2</strong> (15 min * 2)</td>
+                        <td>13:50 – 14:20</td>
+                        <td><strong>Oral presentations 2</strong> (15 min × 2)</td>
                     </tr>
                     <tr>
-                        <td>2:25 PM - 3:25 PM</td>
+                        <td>14:25 – 15:25</td>
                         <td>Poster session & coffee socials 2 (1h)</td>
                     </tr>
                     <tr>
-                        <td>3:30 PM - 3:50 PM</td>
+                        <td>15:30 – 15:50</td>
                         <td><strong>Invited talk 5</strong> (20 min)</td>
                     </tr>
                     <tr>
-                        <td>4:00 PM - 4:20 PM</td>
+                        <td>16:00 – 16:20</td>
                         <td><strong>Invited talk 6</strong> (20 min)</td>
                     </tr>
                     <tr>
-                        <td>4:30 PM - 5:00 PM</td>
+                        <td>16:30 – 17:00</td>
                         <td>Panel discussion (30 min)</td>
                     </tr>
                     <tr>
-                        <td>5:00 PM - 5:15 PM</td>
+                        <td>17:00 – 17:15</td>
                         <td>Awards and conclusive remarks</td>
                     </tr>
                 </tbody>
@@ -430,37 +687,37 @@
 
         <section id="speakers" class="section">
             <h2>Invited Speakers</h2>
-            <p>Given the interdisciplinary nature of the topics our workshop aims to cover, we invited 6 keynote speakers with different backgrounds and perspectives on open-world reasoning and decision-making (all confirmed):</p>
+            <p>Given the interdisciplinary nature of the topics our workshop aims to cover, we invited 6 keynote speakers with different backgrounds and perspectives on open-world reasoning and decision-making:</p>
             <div class="people-grid">
                 <div class="person-card">
-                    <div class="person-photo">MP</div>
-                    <div class="person-name">Marco Pavone</div>
-                    <div class="person-institute">Stanford University</div>
-                </div>
-                <div class="person-card">
-                    <div class="person-photo">CF</div>
+                    <div class="person-photo"><img src="Chelsea.jpeg" alt="Chelsea Finn"></div>
                     <div class="person-name">Chelsea Finn</div>
                     <div class="person-institute">Stanford University</div>
                 </div>
                 <div class="person-card">
-                    <div class="person-photo">EV</div>
-                    <div class="person-name">Eugene Vinitsky</div>
-                    <div class="person-institute">NYU Tandon</div>
+                    <div class="person-photo"><img src="Pavone.jpeg" alt="Marco Pavone"></div>
+                    <div class="person-name">Marco Pavone</div>
+                    <div class="person-institute">Stanford University</div>
                 </div>
                 <div class="person-card">
-                    <div class="person-photo">DS</div>
-                    <div class="person-name">Dhruv Shah</div>
-                    <div class="person-institute">Google DeepMind</div>
+                    <div class="person-photo"><img src="Muyao.jpeg" alt="Yao Mu"></div>
+                    <div class="person-name">Yao Mu</div>
+                    <div class="person-institute">The University of Hong Kong</div>
                 </div>
                 <div class="person-card">
-                    <div class="person-photo">XL</div>
+                    <div class="person-photo"><img src="Yinghao.jpeg" alt="Yinghao Xu"></div>
+                    <div class="person-name">Yinghao Xu</div>
+                    <div class="person-institute">Stanford University</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo"><img src="xuliu.jpeg" alt="Xu Liu"></div>
                     <div class="person-name">Xu Liu</div>
                     <div class="person-institute">Stanford University</div>
                 </div>
                 <div class="person-card">
-                    <div class="person-photo">WH</div>
-                    <div class="person-name">Wenlong Huang</div>
-                    <div class="person-institute">Stanford University</div>
+                    <div class="person-photo"><img src="Eugene.jpeg" alt="Eugene Vinitsky"></div>
+                    <div class="person-name">Eugene Vinitsky</div>
+                    <div class="person-institute">NYU Tandon</div>
                 </div>
             </div>
         </section>
@@ -469,74 +726,85 @@
             <h2>Organizers</h2>
             <div class="people-grid">
                 <div class="person-card">
-                    <div class="person-photo">YQ</div>
+                    <div class="person-photo"><img src="yirnaqin_photo.jpg" alt="Yiran Qin"></div>
                     <div class="person-name">Yiran Qin</div>
                     <div class="person-institute">The Chinese University of Hong Kong, Shenzhen</div>
                 </div>
                 <div class="person-card">
-                    <div class="person-photo">ZY</div>
+                    <div class="person-photo"><img src="zhenfei_profile.jpg" alt="Zhenfei Yin"></div>
                     <div class="person-name">Zhenfei Yin</div>
                     <div class="person-institute">Oxford</div>
                 </div>
                 <div class="person-card">
-                    <div class="person-photo">YD</div>
+                    <div class="person-photo"><img src="yilun.jpeg" alt="Yilun Du"></div>
                     <div class="person-name">Yilun Du</div>
                     <div class="person-institute">Harvard University</div>
                 </div>
                 <div class="person-card">
-                    <div class="person-photo">JM</div>
+                    <div class="person-photo"><img src="jiayuan.jpg" alt="Jiayuan Mao"></div>
                     <div class="person-name">Jiayuan Mao</div>
                     <div class="person-institute">Massachusetts Institute of Technology</div>
                 </div>
                 <div class="person-card">
-                    <div class="person-photo">MS</div>
+                    <div class="person-photo"><img src="mahi_profile_comp_small.jpg" alt="Mahi Shafiullah"></div>
                     <div class="person-name">Nur Muhammad "Mahi" Shafiullah</div>
                     <div class="person-institute">New York University</div>
                 </div>
                 <div class="person-card">
-                    <div class="person-photo">FL</div>
+                    <div class="person-photo"><img src="fangchen.jpeg" alt="Fangchen Liu"></div>
                     <div class="person-name">Fangchen Liu</div>
                     <div class="person-institute">University of California, Berkeley</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo"><img src="likang.jpeg" alt="Li Kang"></div>
+                    <div class="person-name">Li Kang</div>
+                    <div class="person-institute">Shanghai Jiao Tong University</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo"><img src="hengzhou.jpg" alt="Heng Zhou"></div>
+                    <div class="person-name">Heng Zhou</div>
+                    <div class="person-institute">University of Science and Technology of China</div>
                 </div>
             </div>
 
             <h3>Advisory Board</h3>
             <div class="people-grid">
                 <div class="person-card">
-                    <div class="person-photo">JT</div>
-                    <div class="person-name">Josh Tenenbaum</div>
-                    <div class="person-institute">Massachusetts Institute of Technology</div>
-                </div>
-                <div class="person-card">
-                    <div class="person-photo">SL</div>
+                    <div class="person-photo"><img src="Levine.jpeg" alt="Sergey Levine"></div>
                     <div class="person-name">Sergey Levine</div>
                     <div class="person-institute">University of California, Berkeley</div>
                 </div>
                 <div class="person-card">
-                    <div class="person-photo">PA</div>
-                    <div class="person-name">Pieter Abbeel</div>
-                    <div class="person-institute">University of California, Berkeley</div>
-                </div>
-                <div class="person-card">
-                    <div class="person-photo">MS</div>
+                    <div class="person-photo"><img src="MacSchwager.jpg" alt="Mac Schwager"></div>
                     <div class="person-name">Mac Schwager</div>
                     <div class="person-institute">Stanford University</div>
                 </div>
                 <div class="person-card">
-                    <div class="person-photo">PT</div>
+                    <div class="person-photo"><img src="Abbeel.png" alt="Pieter Abbeel"></div>
+                    <div class="person-name">Pieter Abbeel</div>
+                    <div class="person-institute">University of California, Berkeley</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo"><img src="Tenenbaum.jpeg" alt="Josh Tenenbaum"></div>
+                    <div class="person-name">Josh Tenenbaum</div>
+                    <div class="person-institute">Massachusetts Institute of Technology</div>
+                </div>
+                <div class="person-card">
+                    <div class="person-photo"><img src="torr.jpeg" alt="Philip H.S. Torr"></div>
                     <div class="person-name">Philip H.S. Torr</div>
                     <div class="person-institute">University of Oxford</div>
                 </div>
             </div>
         </section>
 
-       
-
         <section id="contact" class="section">
             <h2>Contact Information</h2>
             <p>For questions and inquiries, please contact the organizing committee through the OpenReview submission system or reach out to the organizers directly using the email addresses provided above.</p>
         </section>
+
+        <div class="footer-decoration">
+            <span>MARS-EAI Workshop · ICRA 2026</span>
+        </div>
     </div>
 </body>
 </html>
-
