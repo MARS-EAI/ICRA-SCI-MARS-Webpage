@@ -248,6 +248,34 @@
             background: var(--accent-steel);
         }
 
+        .submission-btn {
+            display: inline-block;
+            padding: 10px 22px;
+            border-radius: 10px;
+            background: var(--accent-steel);
+            color: #ffffff !important;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95em;
+            text-decoration: none;
+            box-shadow: 0 6px 16px rgba(92, 107, 192, 0.35);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+        }
+
+        .submission-btn:hover {
+            background: #3f51b5;
+            color: #ffffff !important;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(92, 107, 192, 0.45);
+        }
+
+        .submission-btn:active {
+            background: #3949ab;
+            color: #ffffff !important;
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(92, 107, 192, 0.3);
+        }
+
         /* Section Cards */
         .section {
             margin-bottom: 30px;
@@ -619,6 +647,11 @@
             <p>Submission Deadline: <strong>May 1, 2026</strong> (AoE)</p>
             <p>Notification to Authors: <strong>May 10, 2026</strong></p>
             <p>Camera-Ready Deadline: <strong>May 20, 2026</strong></p>
+            <p style="margin-top: 18px;">
+                <a href="https://openreview.net/group?id=IEEE.org/ICRA/2026/Workshop/SCI-MARS" class="submission-btn" target="_blank" rel="noopener noreferrer">
+                    Submit Paper on OpenReview
+                </a>
+            </p>
         </section>
         
         <section id="schedule" class="section">
