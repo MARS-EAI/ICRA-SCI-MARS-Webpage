@@ -597,6 +597,83 @@
             border-bottom: 2px solid var(--accent-steel);
             opacity: 0.2;
         }
+
+        /* Accepted Papers */
+        .paper-list {
+            list-style: none;
+            margin: 0 0 10px 0;
+            padding: 0;
+        }
+
+        .paper-list li {
+            padding: 18px 20px;
+            margin-bottom: 14px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--accent-steel);
+            border-radius: 10px;
+            transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .paper-list li::before {
+            display: none;
+        }
+
+        .paper-list li:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            border-color: var(--border-medium);
+        }
+
+        .paper-list.outstanding li {
+            border-left-color: var(--accent-copper);
+            background: linear-gradient(135deg, rgba(184,115,51,0.05) 0%, rgba(255,255,255,1) 60%);
+        }
+
+        .paper-num {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--accent-steel);
+            font-weight: 600;
+            font-size: 0.85em;
+            margin-right: 4px;
+        }
+
+        .paper-title {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.05em;
+            color: var(--text-primary);
+            line-height: 1.45;
+            text-decoration: none;
+        }
+
+        .paper-title:hover {
+            color: var(--accent-copper);
+        }
+
+        .paper-badge {
+            display: inline-block;
+            margin-left: 10px;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .badge-oral {
+            background: var(--accent-copper);
+            color: #ffffff;
+        }
+
+        .badge-poster {
+            background: var(--bg-accent);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-medium);
+        }
     </style>
 </head>
 <body>
@@ -617,6 +694,7 @@
                 <li><a href="#overview">Overview</a></li>
                 <li><a href="#schedule">Schedule</a></li>
                 <li><a href="#call-for-papers">Call For Papers</a></li>
+                <li><a href="#accepted-papers">Accepted Papers</a></li>
                 <li><a href="#speakers">Invited Speakers</a></li>
                 <li><a href="#organizers">Organizers</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -728,6 +806,115 @@
                     Submit Paper on OpenReview
                 </a>
             </p>
+        </section>
+
+        <section id="accepted-papers" class="section">
+            <h2>Accepted Papers</h2>
+            <p>Congratulations to all authors of accepted papers!</p>
+
+            <h3>Outstanding Papers (Oral)</h3>
+            <ul class="paper-list outstanding">
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=gOAW3gNaFg" target="_blank" rel="noopener noreferrer">Graph Neural Planning and Predictive Control for Multi-Robot Communication-Constrained Unlabeled Motion Planning</a>
+                    <span class="paper-badge badge-oral">ORAL</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=EYHDrxfgfa" target="_blank" rel="noopener noreferrer">A Real-World Dataset for Collaborative Teams: Event-Based 3D Tracking and Coordination in High-Density Flocks</a>
+                    <span class="paper-badge badge-oral">ORAL</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=CUMX3O1yej" target="_blank" rel="noopener noreferrer">Superhuman Safe and Agile Racing through Multi-Agent Reinforcement Learning</a>
+                    <span class="paper-badge badge-oral">ORAL</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=LQN1NrLCs7" target="_blank" rel="noopener noreferrer">CRAFT: Coaching Reinforcement Learning Autonomously using Foundation Models for Multi-Robot Coordination Tasks</a>
+                    <span class="paper-badge badge-oral">ORAL</span>
+                </li>
+            </ul>
+
+            <h3>Poster Papers</h3>
+            <ul class="paper-list">
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=OsEKId9YYS" target="_blank" rel="noopener noreferrer">Autonomous Integration and Improvement of Robotic Assembly using Skill Graph Representations</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=vPugv0eWJv" target="_blank" rel="noopener noreferrer">MoRoCo: Topology-Adaptive Human-Fleet Coordination under Restricted Communication</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=M3UUlKMejy" target="_blank" rel="noopener noreferrer">Toward Optimal Multi-Vehicle Path Planning with Hybrid Roadmaps</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=MpEPdGgNri" target="_blank" rel="noopener noreferrer">SRPP: Safe Rescheduled Prioritized Planning Framework for Multi-Agent Path Finding</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=XhWjHiP8Yl" target="_blank" rel="noopener noreferrer">A Boundary Value Problem Approach to Autonomous Rendezvous in Industrial Human-Drone Interaction</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=NKAk8ILRCx" target="_blank" rel="noopener noreferrer">A Practical Framework of Key Performance Indicators for Multi-Robot Lunar and Planetary Field Tests</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=U4JNfkojuT" target="_blank" rel="noopener noreferrer">Constrained Manipulability Polytopes as Visual Cues for Dual-Arm Teleoperation</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=KE1Wh4e7qg" target="_blank" rel="noopener noreferrer">Mixed-Reality Digital Twins: Leveraging the Physical and Virtual Worlds for Hybrid Sim2Real Transition of Multi-Agent Reinforcement Learning Policies</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=4jUQKwZfl3" target="_blank" rel="noopener noreferrer">EMTP: Efficient Multi-Robot Task Planning with Large Language Models</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=K9BsDH2meX" target="_blank" rel="noopener noreferrer">Connectivity-Aware Graph Extension for Decentralized Multi-Robot Exploration</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=24LAXx7HOh" target="_blank" rel="noopener noreferrer">Adaptive Swarm Intelligence: Decentralized Multi-Robot Navigation in Dynamic Formations</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=WQuN1qiYEr" target="_blank" rel="noopener noreferrer">Cooperative Multi-Agent Mobile Manipulation using Learned Dynamical Systems</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=G1DM3cEXjP" target="_blank" rel="noopener noreferrer">Cooperative Thermoregulation in Multi-Robot Lunar Survival via Reinforcement Learning</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=ZooPlMMteP" target="_blank" rel="noopener noreferrer">MultiPush: Multirobot Nonprehensile Rearrangement Planning</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=1zoUB0SHYn" target="_blank" rel="noopener noreferrer">Controlling Generative Flow Policies of Multi-Robot Systems with Gradient-Based Guidance</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=HBHwvM839C" target="_blank" rel="noopener noreferrer">Safe and Fair Multi-Quadruped Collaborative Box Pushing</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=0WHJGj07mJ" target="_blank" rel="noopener noreferrer">Geometric Coherence via Weighted Matching for 3D Heterogeneous Multi-Agent Reach-Avoid Games</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=vnQr707ubS" target="_blank" rel="noopener noreferrer">CADENCE: Predicting Realized MAPF Execution Time Beyond Sum of Costs</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=m7okosm2g6" target="_blank" rel="noopener noreferrer">Uncertainty-Aware Shared Autonomy for Multi-Agent Human and Robot Teams: Collaborative Uncertainty Estimation with Conformal Coverage Guarantees</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+                <li>
+                    <a class="paper-title" href="https://openreview.net/forum?id=h9oiu6qTKj" target="_blank" rel="noopener noreferrer">Integrated Task and Kinodynamic Path Planning for Heterogeneous Multi-Robot Formations</a>
+                    <span class="paper-badge badge-poster">POSTER</span>
+                </li>
+            </ul>
         </section>
 
         <section id="speakers" class="section">
